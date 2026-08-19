@@ -1,4 +1,4 @@
-import { Mail, User, ArrowRight } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
 import { NavLink } from "react-router";
 import meImage from "../../../assets/me.jpg";
 
