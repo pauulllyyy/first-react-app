@@ -11,27 +11,33 @@ export type CardTitleProps = React.HTMLAttributes<HTMLHeadingElement> & {
   icon?: React.ReactNode;
   imageSrc?: string;
   imageFullWidth?: boolean;
-}
+};
 
 // Component Functions Parts for Card
 export function Card({ className, ...props }: CardProps) {
   return (
     <div
       className={cn(
-        "group flex flex-col justify-between border border-gray-200 hover:border-gray-400 rounded-2xl p-6 bg-white transition-colors duration-300",
-        className
+        "group flex h-full flex-col justify-between border border-gray-200 hover:border-gray-400 rounded-2xl p-6 bg-white transition-colors duration-300",
+        className,
       )}
       {...props}
     />
   );
 }
 
-
 export function CardHeader({ className, ...props }: CardHeaderProps) {
   return <div className={cn("space-y-4", className)} {...props} />;
 }
 
-export function CardTitle({ className, icon, imageSrc, imageFullWidth = false, children, ...props }: CardTitleProps) {
+export function CardTitle({
+  className,
+  icon,
+  imageSrc,
+  imageFullWidth = false,
+  children,
+  ...props
+}: CardTitleProps) {
   return (
     <div className="space-y-4">
       {imageSrc && (
@@ -42,7 +48,7 @@ export function CardTitle({ className, icon, imageSrc, imageFullWidth = false, c
             "w-full h-40 object-cover",
             imageFullWidth
               ? "-mx-6 -mt-6 w-[calc(100%+3rem)] max-w-none rounded-t-2xl rounded-b-none border-b border-gray-200"
-              : "rounded-xl border border-gray-100"
+              : "rounded-xl border border-gray-100",
           )}
         />
       )}
@@ -55,7 +61,7 @@ export function CardTitle({ className, icon, imageSrc, imageFullWidth = false, c
         <h3
           className={cn(
             "text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300",
-            className
+            className,
           )}
           {...props}
         >
@@ -74,7 +80,6 @@ export function CardDescription({ className, ...props }: CardDescriptionProps) {
     />
   );
 }
-
 
 export function CardContent({ className, ...props }: CardContentProps) {
   return <div className={cn("py-2", className)} {...props} />;

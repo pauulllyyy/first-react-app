@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { NavLink } from "react-router";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/cn";
@@ -19,93 +18,156 @@ export function Header() {
   };
 
   const getLinkClass = (isActive: boolean) => {
-    if(isActive){
-      return "text-gray-900 underline underline-offset-4"
-    }else{
-      return "text-gray-600 hover:text-gray-900";
+    if (isActive) {
+      return "text-gray-900 after:w-full";
     }
-  }
+
+    return "text-gray-500 after:w-0 hover:text-gray-900 hover:after:w-full";
+  };
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      {/* Backdrop overlay */}
+    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-md">
+      {/* Gradient Line */}
+      <div className="h-0.5 w-full bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500" />
+
+      {/* Mobile Backdrop */}
       <div
         className={cn(
-          "fixed inset-0 bg-black/40 transition-opacity duration-300 md:hidden z-40",
-          isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          "fixed inset-0 z-40 bg-black/30 transition-opacity duration-300 md:hidden",
+          isMenuOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0",
         )}
         onClick={toggleMenu}
       />
 
-      <Section className="py-0" containerClassName="relative z-50 bg-white">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo / Brand */}
+      <Section
+        className="py-0"
+        containerClassName="relative z-50 bg-transparent"
+      >
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo */}
           <div className="flex-shrink-0">
-            <NavLink to="/" className="text-xl font-bold text-gray-900" onClick={toggleMenu}>
-              MyFirstApp
+            <NavLink
+              to="/"
+              onClick={() => setIsMenuOpen(false)}
+              className="flex items-center gap-3"
+            >
+              <div className="flex h-25 w-25 items-center justify-center rounded-xl b">
+                <img
+                  src="/assets/images.png"
+                  alt="MyPortfolio logo"
+                  className="h-full w-full object-contain"
+                />
+              </div>
+
+             
             </NavLink>
           </div>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center gap-8 md:flex">
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
                 to={item.to}
-                className={({ isActive }) => cn("text-sm font-medium transition-colors", getLinkClass(isActive))}
+                className={({ isActive }) =>
+                  cn(
+                    "relative text-sm font-medium transition-colors duration-300",
+                    "after:absolute after:-bottom-2 after:left-0 after:h-0.5",
+                    "after:bg-gradient-to-r after:from-blue-500 after:via-violet-500 after:to-pink-500",
+                    "after:transition-all after:duration-300",
+                    getLinkClass(isActive),
+                  )
+                }
               >
                 {item.label}
               </NavLink>
             ))}
 
-            {/* Contact Button */}
+            {/* Contact */}
             <NavLink to="/contact">
-              <Button>Contact</Button>
+              <Button
+                className="
+                  rounded-full
+                  bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500
+                  px-6
+                  text-white
+                  transition-all duration-300
+                  hover:-translate-y-0.5
+                  hover:shadow-md
+                "
+              >
+                Contact
+              </Button>
             </NavLink>
           </nav>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden">
-            <button
-              onClick={toggleMenu}
-              type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-100 focus:outline-none"
-              aria-expanded={isMenuOpen}
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Menu className="h-6 w-6" aria-hidden="true" />
-              )}
-            </button>
-          </div>
+          <button
+            onClick={toggleMenu}
+            type="button"
+            className="
+              inline-flex items-center justify-center
+              rounded-lg p-2
+              text-gray-500
+              transition-colors
+              hover:bg-gray-100
+              hover:text-gray-900
+              md:hidden
+            "
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle navigation menu"
+          >
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
         </div>
       </Section>
 
-      {/* Mobile Menu Panel */}
+      {/* Mobile Menu */}
       <div
         className={cn(
-          "md:hidden border-t border-gray-200 bg-white transition-all duration-300 ease-in-out grid overflow-hidden absolute top-16 left-0 right-0 border-b shadow-lg z-50",
-          isMenuOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0 pointer-events-none"
+          "absolute left-0 right-0 top-full z-50 overflow-hidden border-b border-gray-200 bg-white shadow-lg transition-all duration-300 md:hidden",
+          isMenuOpen
+            ? "max-h-96 opacity-100"
+            : "pointer-events-none max-h-0 opacity-0",
         )}
       >
-        <div className="overflow-hidden">
-          <div className="px-4 pt-2 pb-4 space-y-2 flex flex-col">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                className={({ isActive }) => cn("text-sm font-medium py-2 transition-colors", getLinkClass(isActive))}
-                onClick={toggleMenu}
+        <div className="space-y-2 px-6 py-5">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              onClick={() => setIsMenuOpen(false)}
+              className={({ isActive }) =>
+                cn(
+                  "block rounded-lg px-4 py-3 text-sm font-medium transition-colors",
+                  isActive
+                    ? "bg-violet-50 text-violet-600"
+                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                )
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
+
+          <div className="border-t border-gray-100 pt-3">
+            <NavLink to="/contact" onClick={() => setIsMenuOpen(false)}>
+              <Button
+                className="
+                  w-full rounded-full
+                  bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500
+                  text-white
+                "
               >
-                {item.label}
-              </NavLink>
-            ))}
-            <div className="pt-2 border-t border-gray-100">
-              <NavLink to="/contact" onClick={toggleMenu} className="inline-block w-full">
-                <Button className="w-full">Contact</Button>
-              </NavLink>
-            </div>
+                Contact
+              </Button>
+            </NavLink>
           </div>
         </div>
       </div>

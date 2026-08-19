@@ -7,7 +7,9 @@ import GuestLayout from "@/pages/guest/layout";
 
 import HomePage from "@/pages/guest/home";
 import AboutPage from "@/pages/guest/about";
+import ProjectsPage from "@/pages/ProjectsPage";
 import ContactPage from "@/pages/guest/contact";
+
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -17,6 +19,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
       </Route>
 
       {/* Dashboard Pages */}
