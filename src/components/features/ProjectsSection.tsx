@@ -1,4 +1,6 @@
 import { ArrowRight } from "lucide-react";
+import portImage from "@/assets/portfolio.png";
+import firstImage from "@/assets/gwapo.png";
 
 export default function ProjectsPage() {
   return <ProjectsSection />;
@@ -6,15 +8,14 @@ export default function ProjectsPage() {
 
 const projects = [
   {
-    image: "/assets/Port.PNG",
+    image: portImage,
     title: "My Portfolio",
     description:
       "A personal portfolio website built with React, TypeScript, and Tailwind CSS.",
     tech: ["React", "TypeScript", "Tailwind CSS"],
   },
-
   {
-    image: "/assets/first.PNG",
+    image: firstImage,
     title: "My First App",
     description:
       "A responsive web application created while learning modern frontend development.",
