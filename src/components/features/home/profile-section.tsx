@@ -1,5 +1,6 @@
 import { Mail, User, ArrowRight } from "lucide-react";
 import { NavLink } from "react-router";
+import meImage from "../../../assets/me.jpg";
 
 import { Button } from "@/components/ui/button";
 
@@ -54,17 +55,9 @@ export function ProfileSection() {
               {/* Profile Icon */}
               <div className="h-28 w-28 shrink-0 rounded-full bg-gradient-to-br from-blue-500 via-violet-500 to-pink-500 p-1">
                 <img
-                  src="/assets/me.jpg"
+                  src={meImage}
                   alt={profile.name}
-                  className="
-                  h-full
-                  w-full
-                  rounded-full
-                  object-cover
-                  transition-transform
-                  duration-500
-                  group-hover:scale-105
-                  "
+                  className="h-full w-full rounded-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
 

@@ -1,6 +1,7 @@
 import { NavLink } from "react-router";
 import { ArrowRight, Code2, Palette, Laptop } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import meImage from "../../../assets/me.jpg";
 
 export default function AboutPage() {
   return (
@@ -49,7 +50,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-200 via-violet-200 to-pink-200 blur-2xl opacity-60" />
 
               <img
-                src="/assets/me.jpg"
+                src={meImage}
                 alt="My profile"
                 className="
                 relative z-10
@@ -58,7 +59,7 @@ export default function AboutPage() {
                 object-cover
                 transition-transform duration-500
                 hover:scale-105
-  "
+                "
               />
             </div>
           </div>

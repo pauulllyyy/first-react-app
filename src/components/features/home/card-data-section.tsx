@@ -1,4 +1,11 @@
 import { useState } from "react";
+import littleImage from "../../../assets/little.jpg";
+import memoImage from "../../../assets/memo.jpg";
+import goodImage from "../../../assets/good.jpg";
+import journeyImage from "../../../assets/journey.jpg";
+import meImage from "../../../assets/me.jpg";
+import anotherImage from "../../../assets/another.jpg";
+
 
 import {
   Card,
@@ -14,36 +21,37 @@ import { Images, ArrowRight } from "lucide-react";
 
 const gallery = [
   {
-    image: "/assets/little.jpg",
+    image: littleImage,
     title: "A Little About Me",
     description: "A glimpse into who I am.",
   },
   {
-    image: "/assets/memo.jpg",
+    image: memoImage,
     title: "My Memories",
     description: "Some moments worth remembering.",
   },
   {
-    image: "/assets/good.jpg",
+    image: goodImage,
     title: "Good Moments",
     description: "Enjoying the simple things.",
   },
   {
-    image: "/assets/journey.jpg",
+    image: journeyImage,
     title: "My Journey",
     description: "A collection of moments from my journey.",
   },
   {
-    image: "/assets/me.jpg",
+    image: meImage,
     title: "Just Me",
     description: "Keeping it simple and authentic.",
   },
   {
-    image: "/assets/another.jpg",
+    image: anotherImage,
     title: "Another Memory",
     description: "One more moment from my gallery.",
   },
 ];
+
 
 export function CardDataSection() {
   const [showGallery, setShowGallery] = useState(false);

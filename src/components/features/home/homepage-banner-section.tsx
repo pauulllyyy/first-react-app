@@ -1,6 +1,6 @@
 import { NavLink } from "react-router";
 import { ArrowRight, Mail } from "lucide-react";
-
+import jpImage from "../../../assets/jp.png";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/common/section";
 
@@ -23,12 +23,14 @@ export function HomePageBannerSection() {
           {/* Heading */}
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 md:text-6xl">
             Hi, I'm{" "}
-            <span className="
+            <span
+              className="
             inline-block
             bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500
             bg-clip-text text-transparent
             animate-pulse
-            ">
+            "
+            >
               John Paul
             </span>
           </h1>
@@ -91,15 +93,15 @@ export function HomePageBannerSection() {
 
           {/* Your Image */}
           <img
-            src="/assets/jp.png"
+            src={jpImage}
             alt="My profile"
             className="
-              relative z-10
-              max-h-[450px]
-              w-auto
-              object-contain
-              transition-transform duration-500
-              hover:scale-105
+            relative z-10
+            max-h-[450px]
+            w-auto
+            object-contain
+            transition-transform duration-500
+            hover:scale-105
             "
           />
         </div>

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/cn";
 import { Menu, X } from "lucide-react";
 import { Section } from "@/components/common/section";
+import logoImage from "../../assets/images.png";
 
 const navItems = [
   { label: "Home", to: "/" },
@@ -55,13 +56,11 @@ export function Header() {
             >
               <div className="flex h-25 w-25 items-center justify-center rounded-xl b">
                 <img
-                  src="/assets/images.png"
+                  src={logoImage}
                   alt="MyPortfolio logo"
                   className="h-full w-full object-contain"
                 />
               </div>
-
-             
             </NavLink>
           </div>
 
