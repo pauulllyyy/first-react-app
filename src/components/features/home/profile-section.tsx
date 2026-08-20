@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 export function ProfileSection() {
   const profile = {
     name: "John Paul M. Gianan",
-    email: "test@gmail.com",
+    email: "johnpaulgiananmerto@gmail.com",
   };
 
   return (
