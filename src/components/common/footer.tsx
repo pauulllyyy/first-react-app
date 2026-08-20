@@ -3,9 +3,9 @@ import { ArrowUp } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="mt-auto bg-white text-gray-900">
-      {/* Top Gradient Line */}
-      <div className="h-1 w-full bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500" />
+    <footer className="mt-auto bg-[#F5EBDD] text-stone-900">
+      {/* Top Amber Gradient Line */}
+      <div className="h-1 w-full bg-gradient-to-r from-amber-600 via-orange-500 to-stone-700" />
 
       <div className="mx-auto max-w-7xl px-6 py-10">
         {/* Main Footer */}
@@ -13,21 +13,20 @@ export function Footer() {
           {/* Logo */}
           <div className="text-center md:text-left">
             <h2 className="text-2xl font-bold">
-              My
+              My{" "}
               <span
                 className="
-                inline-block
-                bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500
-                bg-clip-text text-transparent
-                animate-pulse
-               "
+                  inline-block
+                  bg-gradient-to-r from-amber-600 via-orange-500 to-stone-700
+                  bg-clip-text text-transparent
+                "
               >
                 Portfolio
               </span>
             </h2>
 
-            <p className="mt-2 text-sm text-gray-500">
-              Building creative and modern web experiences.
+            <p className="mt-2 text-sm text-stone-500">
+              Exploring creativity, design, and architecture.
             </p>
           </div>
 
@@ -35,21 +34,21 @@ export function Footer() {
           <nav className="flex items-center gap-6">
             <NavLink
               to="/"
-              className="text-sm text-gray-500 transition-colors duration-300 hover:text-blue-500"
+              className="text-sm text-stone-600 transition-colors duration-300 hover:text-amber-600"
             >
               Home
             </NavLink>
 
             <NavLink
               to="/about"
-              className="text-sm text-gray-500 transition-colors duration-300 hover:text-violet-500"
+              className="text-sm text-stone-600 transition-colors duration-300 hover:text-amber-600"
             >
               About
             </NavLink>
 
             <NavLink
               to="/contact"
-              className="text-sm text-gray-500 transition-colors duration-300 hover:text-pink-500"
+              className="text-sm text-stone-600 transition-colors duration-300 hover:text-amber-600"
             >
               Contact
             </NavLink>
@@ -57,11 +56,11 @@ export function Footer() {
         </div>
 
         {/* Divider Line */}
-        <div className="my-8 h-px w-full bg-gray-200" />
+        <div className="my-8 h-px w-full bg-amber-900/10" />
 
         {/* Bottom Footer */}
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-stone-500">
             © {new Date().getFullYear()} MyPortfolio. All rights reserved.
           </p>
 
@@ -73,9 +72,15 @@ export function Footer() {
                 behavior: "smooth",
               })
             }
-            className="group flex items-center gap-2 text-xs text-gray-400 transition-colors duration-300 hover:text-violet-500"
+            className="
+              group flex items-center gap-2
+              text-xs text-stone-500
+              transition-colors duration-300
+              hover:text-amber-600
+            "
           >
             Back to top
+
             <ArrowUp
               size={14}
               className="transition-transform duration-300 group-hover:-translate-y-1"
@@ -84,7 +89,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Line */}
-        <div className="mt-8 h-px w-full bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+        <div className="mt-8 h-px w-full bg-gradient-to-r from-transparent via-amber-900/20 to-transparent" />
       </div>
     </footer>
   );

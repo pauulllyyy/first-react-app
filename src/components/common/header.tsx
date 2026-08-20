@@ -20,16 +20,16 @@ export function Header() {
 
   const getLinkClass = (isActive: boolean) => {
     if (isActive) {
-      return "text-gray-900 after:w-full";
+      return "text-stone-900 after:w-full";
     }
 
-    return "text-gray-500 after:w-0 hover:text-gray-900 hover:after:w-full";
+    return "text-stone-600 after:w-0 hover:text-amber-700 hover:after:w-full";
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur-md">
-      {/* Gradient Line */}
-      <div className="h-0.5 w-full bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500" />
+    <header className="sticky top-0 z-50 w-full border-b border-amber-900/10 bg-[#F5EBDD]/95 backdrop-blur-md">
+      {/* Amber Gradient Line */}
+      <div className="h-0.5 w-full bg-gradient-to-r from-amber-600 via-orange-500 to-stone-700" />
 
       {/* Mobile Backdrop */}
       <div
@@ -54,7 +54,7 @@ export function Header() {
               onClick={() => setIsMenuOpen(false)}
               className="flex items-center gap-3"
             >
-              <div className="flex h-25 w-25 items-center justify-center rounded-xl b">
+              <div className="flex h-25 w-25 items-center justify-center rounded-xl">
                 <img
                   src={logoImage}
                   alt="MyPortfolio logo"
@@ -74,7 +74,7 @@ export function Header() {
                   cn(
                     "relative text-sm font-medium transition-colors duration-300",
                     "after:absolute after:-bottom-2 after:left-0 after:h-0.5",
-                    "after:bg-gradient-to-r after:from-blue-500 after:via-violet-500 after:to-pink-500",
+                    "after:bg-gradient-to-r after:from-amber-600 after:via-orange-500 after:to-stone-700",
                     "after:transition-all after:duration-300",
                     getLinkClass(isActive),
                   )
@@ -89,12 +89,13 @@ export function Header() {
               <Button
                 className="
                   rounded-full
-                  bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500
+                  bg-gradient-to-r from-amber-600 via-orange-500 to-stone-700
                   px-6
                   text-white
                   transition-all duration-300
                   hover:-translate-y-0.5
                   hover:shadow-md
+                  hover:shadow-amber-600/20
                 "
               >
                 Contact
@@ -109,10 +110,10 @@ export function Header() {
             className="
               inline-flex items-center justify-center
               rounded-lg p-2
-              text-gray-500
+              text-stone-600
               transition-colors
-              hover:bg-gray-100
-              hover:text-gray-900
+              hover:bg-amber-100
+              hover:text-amber-700
               md:hidden
             "
             aria-expanded={isMenuOpen}
@@ -130,7 +131,7 @@ export function Header() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "absolute left-0 right-0 top-full z-50 overflow-hidden border-b border-gray-200 bg-white shadow-lg transition-all duration-300 md:hidden",
+          "absolute left-0 right-0 top-full z-50 overflow-hidden border-b border-amber-900/10 bg-[#F5EBDD] shadow-lg transition-all duration-300 md:hidden",
           isMenuOpen
             ? "max-h-96 opacity-100"
             : "pointer-events-none max-h-0 opacity-0",
@@ -146,8 +147,8 @@ export function Header() {
                 cn(
                   "block rounded-lg px-4 py-3 text-sm font-medium transition-colors",
                   isActive
-                    ? "bg-violet-50 text-violet-600"
-                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+                    ? "bg-amber-100 text-amber-700"
+                    : "text-stone-600 hover:bg-amber-50 hover:text-amber-700",
                 )
               }
             >
@@ -155,13 +156,16 @@ export function Header() {
             </NavLink>
           ))}
 
-          <div className="border-t border-gray-100 pt-3">
+          <div className="border-t border-amber-900/10 pt-3">
             <NavLink to="/contact" onClick={() => setIsMenuOpen(false)}>
               <Button
                 className="
                   w-full rounded-full
-                  bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500
+                  bg-gradient-to-r from-amber-600 via-orange-500 to-stone-700
                   text-white
+                  transition-all duration-300
+                  hover:shadow-md
+                  hover:shadow-amber-600/20
                 "
               >
                 Contact
